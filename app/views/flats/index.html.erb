@@ -1,0 +1,16 @@
+<h1> Simple Airbnb </h1>
+<%# <% image = "../../assets/images/grop_people.png" %>
+<% @flats.each do |flat| %>
+<div style = "border: 5px solid gray;text-align: center; width:300; height:300;">
+  <ul style = "list-style-type: none;">
+    <li> <%= flat.name %> </li>
+    <li> <%= flat.address %> </li>
+    <li> <%= flat.description %> </li>
+    <li> <%= flat.price_per_night %> </li>
+    <%# <%= image_tag "grop_people.png" %>
+    <li> <%= flat.number_of_guests %> </li>
+    <%= link_to "see more", flat_path(flat) %>
+    <%= link_to "Create a flat", new_flat_path(flat) %>
+  </ul>
+</div>
+<%end%>

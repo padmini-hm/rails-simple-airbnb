@@ -1,0 +1,12 @@
+ <div style = "border: 5px solid gray;text-align: center;background-color: gray;width:300; height:300;">
+  <h3> <%= @flat.name %> </h3>
+  <p> Address: <%= @flat.address %></p>
+  <p> Description: <%= @flat.description %></p>
+  <p> price_per_night: <%= @flat.price_per_night %></p>
+  <p> number_of_guests: <%= @flat.number_of_guests %> </p>
+</div>
+<div style = "margin:8px;">
+<%= link_to  "Home", flats_path %>
+<%= link_to  "Edit", edit_flat_path(@flat) %>
+<%= link_to  "Delete", flat_path(@flat), method: :delete, data: {confirm: "Are you sure?"} %>
+</div>
