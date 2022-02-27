@@ -7,5 +7,12 @@ Rails.application.routes.draw do
   # get "/flats/:id/edit", to: "flats#edit", as: :edit_flat
   # patch "/flats/:id", to: "flats#update"
   # delete "/flats/:id", to: "flats#destroy"
-  resources :flats
+  root to: "flats#index"
+  resources :flats do
+    collection do
+      get :top
+    end
+    resources :reviews, only: [:new, :create]
+  end
+  resources :reviews, only: [:destroy]
 end

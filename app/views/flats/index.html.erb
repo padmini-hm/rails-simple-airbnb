@@ -7,10 +7,13 @@
     <li> <%= flat.address %> </li>
     <li> <%= flat.description %> </li>
     <li> <%= flat.price_per_night %> </li>
+
     <%# <%= image_tag "grop_people.png" %>
     <li> <%= flat.number_of_guests %> </li>
+    <li> <%= flat.rating %> </li>
     <%= link_to "see more", flat_path(flat) %>
     <%= link_to "Create a flat", new_flat_path(flat) %>
+    <%= link_to "Top flats", top_flats_path(flat) %>
   </ul>
 </div>
 <%end%>

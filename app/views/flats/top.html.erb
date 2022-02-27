@@ -1,0 +1,5 @@
+<h1> Top Flats</h1>
+<% @flats.each do |flat| %>
+  <p> <%= flat.name %> </p>
+<%end%>
+<%= link_to  "Home", flats_path %>

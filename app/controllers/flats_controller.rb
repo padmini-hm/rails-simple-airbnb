@@ -39,10 +39,16 @@ class FlatsController < ApplicationController
     @flat.destroy
     redirect_to flats_path, notice: 'Flat was successfully destroyed.'
   end
+
+  def top
+    @flats = Flat.where(rating: 5)
+  end
+
+
   private
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests)
+    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests, :rating)
   end
 
   def set_flat
