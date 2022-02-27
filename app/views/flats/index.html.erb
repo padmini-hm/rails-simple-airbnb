@@ -11,9 +11,17 @@
     <%# <%= image_tag "grop_people.png" %>
     <li> <%= flat.number_of_guests %> </li>
     <li> <%= flat.rating %> </li>
-    <%= link_to "see more", flat_path(flat) %>
-    <%= link_to "Create a flat", new_flat_path(flat) %>
-    <%= link_to "Top flats", top_flats_path(flat) %>
+    <ul class="list-inline tabs-underlined">
+  <li>
+    <a class="tab-underlined active" <%= link_to "see more", flat_path(flat) %> </a>
+  </li>
+  <li>
+    <a class="tab-underlined" <%= link_to "Create a flat", new_flat_path(flat) %> </a>
+  </li>
+  <li>
+    <a class="tab-underlined" <%= link_to "Top flats", top_flats_path(flat) %> </a>
+  </li>
+</ul>
   </ul>
 </div>
 <%end%>

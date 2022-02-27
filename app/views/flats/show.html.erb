@@ -1,22 +1,31 @@
- <div style = "border: 5px solid gray;text-align: center;background-color: gray;width:300; height:300;">
-  <h3> <%= @flat.name %> </h3>
-  <p> Address: <%= @flat.address %></p>
-  <p> Description: <%= @flat.description %></p>
-  <p> price_per_night: <%= @flat.price_per_night %></p>
-  <p> number_of_guests: <%= @flat.number_of_guests %> </p>
-  <p> rating: <%= @flat.rating %> </p>
-  <h4> Reviews </h4>
-  <% @flat.reviews.each do |review|%>
+ <div class="card" style="width: 18rem;">
+  <img src="https://media.istockphoto.com/photos/modern-living-room-interior-3d-render-picture-id1293762741?b=1&k=20&m=1293762741&s=170667a&w=0&h=2RI8SmBN4MrEZuTvdwRzaeB887x-dukFcQBpyQ-qwS4=" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"> <%= @flat.name %> </h5>
+    <p class="card-text"> <%= @flat.address %> </p>
+    <p class="card-text"> <%= @flat.description %> </p>
+    <p class="card-text"> <%= @flat.number_of_guests %> </p>
+    <p class="card-text"> <%= @flat.price_per_night %> </p>
+    <p class="card-text"> <%= @flat.rating %> </p>
 
-    <p> <%= review.content %> <%= link_to  "🗑", review_path(review), method: :delete, data: {confirm: "Are you sure?"} %></p>
-  <%end%>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    Reviews
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @flat.reviews.each do |review|%>
+    <li class="list-group-item"><%= review.content %> <%= link_to  "🗑(delete)", review_path(review), method: :delete, data: {confirm: "Are you sure?"} %></li>
+    <%end%>
+  </ul>
 </div>
 
 
-
 <div style = "margin:8px;">
-<%= link_to  "Home", flats_path %>
-<%= link_to  "Edit", edit_flat_path(@flat) %>
-<%= link_to  "Delete", flat_path(@flat), method: :delete, data: {confirm: "Are you sure?"} %>
-<%= link_to  "Write a review", new_flat_review_path(@flat) %>
+<a class="btn btn-primary" <%= link_to  "Home", flats_path %> </a>
+<a class="btn btn-ghost" <%= link_to  "Edit", edit_flat_path(@flat) %> </a>
+<a class="btn btn-flat" <%= link_to  "Delete", flat_path(@flat), method: :delete, data: {confirm: "Are you sure?"} %> </a>
+<a class="btn btn-gradient" <%= link_to  "Write a review", new_flat_review_path(@flat) %> </a>
 </div>
